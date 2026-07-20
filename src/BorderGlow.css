@@ -1,0 +1,86 @@
+.border-glow-card {
+  --edge-proximity: 0;
+  --cursor-angle: 45deg;
+  --edge-sensitivity: 30;
+  --color-sensitivity: calc(var(--edge-sensitivity) + 20);
+  --border-radius: 28px;
+  --glow-padding: 34px;
+  --cone-spread: 22;
+  position: relative;
+  display: grid;
+  overflow: visible;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--border-radius);
+  background: var(--border-card-bg, #050506);
+  isolation: isolate;
+}
+
+.border-glow-card::before,
+.border-glow-card::after,
+.border-glow-card > .border-edge-light {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  transition: opacity 250ms ease-out;
+}
+
+.border-glow-card:not(:hover):not(.sweep-active)::before,
+.border-glow-card:not(:hover):not(.sweep-active)::after,
+.border-glow-card:not(:hover):not(.sweep-active) > .border-edge-light {
+  opacity: 0;
+  transition: opacity 700ms ease-in-out;
+}
+
+.border-glow-card::before {
+  z-index: 2;
+  padding: 1px;
+  background:
+    var(--border-gradient-one),
+    var(--border-gradient-two),
+    var(--border-gradient-three),
+    var(--border-gradient-four),
+    var(--border-gradient-five),
+    var(--border-gradient-six),
+    var(--border-gradient-seven),
+    var(--border-gradient-base);
+  opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+}
+
+.border-glow-card::after {
+  display: none;
+}
+
+.border-glow-card > .border-edge-light {
+  z-index: 3;
+  inset: calc(var(--glow-padding) * -1);
+  opacity: calc((var(--edge-proximity) - var(--edge-sensitivity)) / (100 - var(--edge-sensitivity)));
+  mask-image: conic-gradient(from var(--cursor-angle) at center, #000 2.5%, transparent 10%, transparent 90%, #000 97.5%);
+  mix-blend-mode: plus-lighter;
+}
+
+.border-glow-card > .border-edge-light::before {
+  content: "";
+  position: absolute;
+  inset: var(--glow-padding);
+  border-radius: inherit;
+  box-shadow:
+    inset 0 0 0 1px var(--border-glow-color),
+    inset 0 0 4px var(--border-glow-color-50),
+    inset 0 0 12px var(--border-glow-color-30),
+    0 0 2px var(--border-glow-color-60),
+    0 0 8px var(--border-glow-color-40),
+    0 0 22px var(--border-glow-color-20),
+    0 0 42px var(--border-glow-color-10);
+}
+
+.border-glow-inner {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}

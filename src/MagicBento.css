@@ -1,0 +1,206 @@
+.magic-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: clamp(12px, 1.1vw, 18px);  row-gap: clamp(12px, 1.1vw, 18px);  column-gap: clamp(12px, 1.1vw, 18px);
+  width: 100%;
+
+  user-select: none;
+}
+
+.magic-bento-card {
+  --glow-x: 50%;
+  --glow-y: 50%;
+  --glow-intensity: 0;
+  --glow-radius: 320px;
+  position: relative;
+  grid-column: span 4;
+  display: flex;
+  min-width: 0;  overflow: hidden;  min-height: clamp(270px, 20vw, 350px);
+  padding: clamp(24px, 2.3vw, 38px);  contain: layout style;
+
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: clamp(20px, 1.7vw, 28px);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.035), transparent 42%),
+    #090a0d;
+  box-shadow:
+    0 26px 70px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+  transform-style: flat;
+  transform-origin: center;
+  transition: border-color 300ms ease, background-color 300ms ease, box-shadow 380ms ease;
+}
+
+.magic-bento-card:nth-child(n + 4) {
+  grid-column: span 6;
+  contain: layout style;  min-height: clamp(245px, 17vw, 310px);
+}
+
+.magic-bento-card:hover {
+  border-color: rgba(255, 255, 255, 0.16);
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.34),
+    0 0 38px rgba(var(--glow-color), 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.055);
+}
+
+.magic-bento-card > .border-glow-inner {
+  display: flex;
+  min-height: 100%;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: visible;
+}
+
+.magic-bento-card__header,
+.magic-bento-card__content {
+  position: relative;
+  z-index: 3;
+}
+
+.magic-bento-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: rgba(226, 230, 239, 0.5);
+  font-size: 11px;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.magic-bento-card__label {
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.magic-bento-card__index {
+  color: rgba(246, 247, 249, 0.72);
+  font-variant-numeric: tabular-nums;
+}
+
+.magic-bento-card__content {
+  max-width: 620px;
+}
+
+.magic-bento-card__title {
+  margin-top: 8px;
+  color: #f4f4f1;
+  font-size: clamp(25px, 2vw, 36px);
+  line-height: 1.08;
+  font-weight: 500;
+  letter-spacing: -0.045em;
+}
+
+.magic-bento-card__description {
+  max-width: 520px;
+  margin-top: 18px;
+  color: rgba(225, 228, 235, 0.66);
+  font-size: clamp(13px, 0.9vw, 15px);
+  line-height: 1.8;
+}
+
+.magic-bento-card--text-autohide .magic-bento-card__title,
+.magic-bento-card--text-autohide .magic-bento-card__description {
+  display: -webkit-box;
+
+  -webkit-box-orient: vertical;
+}
+
+.magic-bento-card--text-autohide .magic-bento-card__title {
+  -webkit-line-clamp: 1;
+}
+
+.magic-bento-card--text-autohide .magic-bento-card__description {
+  -webkit-line-clamp: 3;
+}
+
+.magic-bento-particle {
+  position: absolute;
+  z-index: 4;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: rgba(var(--particle-color), 0.95);
+  box-shadow: 0 0 8px rgba(var(--particle-color), 0.64);
+}
+
+.magic-bento-ripple {
+  position: absolute;
+  z-index: 5;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(var(--ripple-color), 0.24), rgba(var(--ripple-color), 0.08) 34%, transparent 70%);
+}
+
+.magic-bento-spotlight {
+  position: fixed;
+  z-index: 36;
+  width: 720px;
+  height: 720px;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(var(--spotlight-color), 0.11), rgba(var(--spotlight-color), 0.045) 25%, transparent 68%);
+  mix-blend-mode: screen;
+  will-change: left, top, opacity;
+}
+
+@media (max-width: 1100px) {
+  .magic-bento-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .magic-bento-card,
+  .magic-bento-card:nth-child(n + 4) {
+    grid-column: span 1;
+    min-height: 260px;
+  }
+
+  .magic-bento-card:last-child:nth-child(odd) {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 760px) {
+  .magic-bento-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;    row-gap: 14px;    column-gap: 14px;
+  }
+
+  .magic-bento-card,
+  .magic-bento-card:nth-child(n + 4),
+  .magic-bento-card:last-child:nth-child(odd) {
+    grid-column: auto;
+    min-height: 0;
+    padding: 22px 20px;
+    border-radius: 18px;
+  }
+
+  .magic-bento-card__description {
+    max-width: 42ch;
+    font-size: 13px;
+    line-height: 1.65;
+    margin-top: 10px;
+  }
+
+  .magic-bento-card__title {
+    font-size: 22px;
+  }
+}
+
+
+
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .magic-bento-card {
+    transition-duration: 0.01ms;
+  }
+}
