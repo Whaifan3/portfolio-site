@@ -111,10 +111,10 @@ export default function ProjectPanel({ project, projects = [], onSwitch, onClose
           <div className="panel-story">
             {imageGroups.map((group) => (
               <section className="panel-story-group" key={group.name}>
-                <div className={`panel-image-grid ${project.id === "bean-tennis" ? "is-seamless" : group.layout === "masonry" ? "is-masonry" : "is-single-column"}`}>
+                <div className={`panel-image-grid ${project.id === "bean-tennis" ? "is-seamless" : group.layout === "masonry" ? "is-masonry" : group.hideCaption ? "is-graphics" : "is-single-column"}`}>
                   {group.images.map((image, index) => (
                     <figure className="panel-image-card" key={image.src} style={{ "--img-delay": `${Math.min(index, 8) * 45}ms` }}>
-                      {project.id === "flexclip" && group.layout !== "masonry" && (
+                      {project.id === "flexclip" && group.layout !== "masonry" && !group.hideCaption && (
                         <figcaption>
                           <span>{String(index + 1).padStart(2, "0")}</span>
                           <strong>{language === "zh" && image.captionZh ? image.captionZh : image.caption}</strong>
