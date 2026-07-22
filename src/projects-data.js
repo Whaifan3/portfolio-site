@@ -2,7 +2,7 @@
  
  const projectBase = "/assets/projects";
  
- function img(path) {
+function img(path) {
    return `${projectBase}${path}`;
  }
  
@@ -26,17 +26,34 @@
       descriptionZh: "独立着陆页与活动专题页面设计",
       images: [
         { src: img("/flexclip/web-pages/home.png"), caption: "FlexClip Homepage", captionZh: "FlexClip 首页" },
-        { src: img("/flexclip/web-pages/1.png"), caption: "AI tool landing page", captionZh: "AI 工具着陆页" },
-        { src: img("/flexclip/web-pages/2.png"), caption: "Feature page design", captionZh: "功能页面设计" },
-        { src: img("/flexclip/web-pages/3.png"), caption: "Product showcase", captionZh: "产品展示页面" },
+        { src: img("/flexclip/web-pages/1.png"), caption: "Landing Page", captionZh: "着陆页" },
+        { src: img("/flexclip/web-pages/2.png"), caption: "Feature Page", captionZh: "功能页面" },
+        { src: img("/flexclip/web-pages/3.png"), caption: "Product Showcase", captionZh: "产品展示" },
         { src: img("/flexclip/web-pages/AI Background Remover Online.png"), caption: "AI Background Remover", captionZh: "AI 去背景" },
-        { src: img("/flexclip/web-pages/AI Photo Enhancer.png"), caption: "AI Photo Enhancer", captionZh: "AI 图片增强" },
-        { src: img("/flexclip/web-pages/ai视频配音着陆页.png"), caption: "AI Video Dubbing LP", captionZh: "AI 视频配音着陆页" },
-        { src: img("/flexclip/web-pages/AI证件照着陆页.png"), caption: "AI ID Photo LP", captionZh: "AI 证件照着陆页" },
         { src: img("/flexclip/web-pages/ai muscle.png"), caption: "AI Muscle Generator", captionZh: "AI 肌肉生成器" },
+        { src: img("/flexclip/web-pages/AI Photo Enhancer.png"), caption: "AI Photo Enhancer", captionZh: "AI 图片增强" },
+        { src: img("/flexclip/web-pages/AI Sound Effects for Video.png"), caption: "AI Sound Effects", captionZh: "AI 视频音效" },
+        { src: img("/flexclip/web-pages/AI Tinder 资料照片生成器.png"), caption: "AI Tinder Photo Generator", captionZh: "AI Tinder 照片生成" },
+        { src: img("/flexclip/web-pages/AI 恐怖漫画滤镜备份.png"), caption: "AI Horror Comic Filter", captionZh: "AI 恐怖漫画滤镜" },
+        { src: img("/flexclip/web-pages/AI 文本性别互换.png"), caption: "AI Text Gender Swap", captionZh: "AI 文本性别互换" },
         { src: img("/flexclip/web-pages/AI 在线天空替换.png"), caption: "AI Sky Replacement", captionZh: "AI 在线天空替换" },
-        { src: img("/flexclip/web-pages/AI换发着陆页.png"), caption: "AI Hairstyle Change LP", captionZh: "AI 换发着陆页" },
+        { src: img("/flexclip/web-pages/AI动物生成器.png"), caption: "AI Animal Generator", captionZh: "AI 动物生成器" },
+        { src: img("/flexclip/web-pages/AI换发着陆页.png"), caption: "AI Hairstyle Change", captionZh: "AI 换发着陆页" },
+        { src: img("/flexclip/web-pages/AI季节变化.png"), caption: "AI Season Change", captionZh: "AI 季节变化" },
+        { src: img("/flexclip/web-pages/ai视频配音着陆页.png"), caption: "AI Video Dubbing LP", captionZh: "AI 视频配音着陆页" },
+        { src: img("/flexclip/web-pages/AI文字图像编辑备份.png"), caption: "AI Text Image Editor", captionZh: "AI 文字图像编辑" },
+        { src: img("/flexclip/web-pages/AI证件照着陆页.png"), caption: "AI ID Photo LP", captionZh: "AI 证件照着陆页" },
+        { src: img("/flexclip/web-pages/Al Text Based Editing.png"), caption: "AI Text Based Editing", captionZh: "AI 文本编辑" },
+        { src: img("/flexclip/web-pages/blog URL备份.png"), caption: "Blog URL Page", captionZh: "Blog URL 页面" },
+        { src: img("/flexclip/web-pages/BytePlus联名页面.png"), caption: "BytePlus Co-brand Page", captionZh: "BytePlus 联名页面" },
         { src: img("/flexclip/web-pages/Free AI Pixel Art Generator Online.png"), caption: "AI Pixel Art Generator", captionZh: "AI 像素艺术生成器" },
+        { src: img("/flexclip/web-pages/Outline Pictures Outline.png"), caption: "Outline Pictures", captionZh: "轮廓图片" },
+        { src: img("/flexclip/web-pages/veo 3 video generator.png"), caption: "Veo 3 Video Generator", captionZh: "Veo 3 视频生成器" },
+        { src: img("/flexclip/web-pages/Windows video editor.png"), caption: "Windows Video Editor", captionZh: "Windows 视频编辑器" },
+        { src: img("/flexclip/web-pages/二维码生成器备份.png"), caption: "QR Code Generator", captionZh: "二维码生成器" },
+        { src: img("/flexclip/web-pages/在线宝宝生成器.png"), caption: "Baby Generator Online", captionZh: "在线宝宝生成器" },
+        { src: img("/flexclip/web-pages/物体抹除着陆页.png"), caption: "Object Eraser LP", captionZh: "物体抹除着陆页" },
+        { src: img("/flexclip/web-pages/在线宝宝生成器.png"), caption: "Baby Generator Online", captionZh: "在线宝宝生成器" },
       ],
     },
     {
